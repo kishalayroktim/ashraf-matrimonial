@@ -17,7 +17,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Ashraf Matrimonial Services™ | Bangladesh's Most Eligible Civil Engineer",
+  title: "Way to Ashraf's Heart | Bangladesh's Most Eligible Bachelor",
   description:
     "The official matrimonial portal for Ashraf Hamid — BUET graduate, Erasmus Mundus scholar, and future husband material. Apply now before it's too late.",
 };

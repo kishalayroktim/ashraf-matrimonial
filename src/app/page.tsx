@@ -40,7 +40,7 @@ export default function Home() {
 
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-heading font-bold text-white leading-tight mb-4">
             Bangladesh&apos;s Most Eligible{" "}
-            <span className="gold-shimmer">Civil Engineer</span>
+            <span className="gold-shimmer">Bachelor</span>
           </h1>
 
           <motion.p

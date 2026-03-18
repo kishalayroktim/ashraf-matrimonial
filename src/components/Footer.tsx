@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <h3 className="font-heading text-lg text-accent mb-3">
-              Ashraf Matrimonial Services&trade;
+              Way to Ashraf&apos;s Heart
             </h3>
             <p className="text-white/60 text-sm">
               Connecting Bangladesh&apos;s most eligible civil engineer with his
@@ -40,7 +40,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-6 border-t border-accent/10 text-center text-white/40 text-xs">
-          &copy; 2026 Ashraf Matrimonial Services&trade;. All rights reserved.
+          &copy; 2026 Way to Ashraf&apos;s Heart. All rights reserved.
           Made with questionable intentions by his &quot;friends.&quot;
         </div>
       </div>
