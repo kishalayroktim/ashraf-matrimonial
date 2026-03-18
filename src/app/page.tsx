@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className="relative">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden">
+      <section className="relative min-h-screen flex flex-col items-center justify-end pb-12 px-4 overflow-hidden">
         {/* Background image */}
         <div className="absolute inset-0">
           <Image
@@ -19,7 +19,7 @@ export default function Home() {
             className="object-cover object-top"
             priority
           />
-          <div className="absolute inset-0 bg-primary/40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-primary/30 to-primary/80" />
         </div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.08),transparent_70%)]" />
 
