@@ -106,7 +106,7 @@ export default function Home() {
               {
                 icon: "🌍",
                 title: "International Profile",
-                desc: "Currently in Germany on a prestigious scholarship. Your parents will finally have something to brag about at gatherings.",
+                desc: "Currently in Italy on a prestigious scholarship. Your parents will finally have something to brag about at gatherings.",
               },
               {
                 icon: "📝",

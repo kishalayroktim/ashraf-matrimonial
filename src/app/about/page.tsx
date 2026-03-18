@@ -58,7 +58,7 @@ export default function AboutPage() {
             individual ready for the ultimate challenge: marriage.
           </p>
           <p className="text-white/80 leading-relaxed mb-4">
-            Currently stationed in Germany under the prestigious Erasmus Mundus
+            Currently stationed in Italy under the prestigious Erasmus Mundus
             Scholarship, Ashraf continues to build bridges — both metaphorically
             and literally. He is humble, family-oriented, respectful, and
             according to his mother, &quot;the best boy in the whole world.&quot;

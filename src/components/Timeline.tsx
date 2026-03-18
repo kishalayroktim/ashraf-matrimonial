@@ -26,10 +26,10 @@ const timelineData = [
   },
   {
     year: "2024 - Present",
-    title: "Erasmus Mundus Scholar — Germany",
+    title: "Erasmus Mundus Scholar — Italy",
     description:
-      "Won a prestigious European scholarship because apparently Bangladesh wasn't far enough from his mother's marriage pressure. Currently building a future in Europe.",
-    icon: "🇩🇪",
+      "Won a prestigious European scholarship because apparently Bangladesh wasn't far enough from his mother's marriage pressure. Currently building a future in Italy.",
+    icon: "🇮🇹",
   },
 ];
 
