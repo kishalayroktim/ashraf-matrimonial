@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
+import { submitRatingToFirebase, getRatingsFromFirebase } from "@/lib/firebase";
 
 const categories = [
   {
@@ -31,50 +32,73 @@ const categories = [
   },
 ];
 
-function getStoredRatings(): Record<string, number[]> {
+function getLocalSubmitted(): Record<string, boolean> {
   if (typeof window === "undefined") return {};
-  const stored = localStorage.getItem("ashraf-ratings");
+  const stored = localStorage.getItem("ashraf-ratings-submitted");
   return stored ? JSON.parse(stored) : {};
 }
 
-function storeRating(id: string, rating: number) {
-  const all = getStoredRatings();
-  if (!all[id]) all[id] = [];
-  all[id].push(rating);
-  localStorage.setItem("ashraf-ratings", JSON.stringify(all));
-}
-
-function getAverage(id: string): number {
-  const all = getStoredRatings();
-  if (!all[id] || all[id].length === 0) return 0;
-  return all[id].reduce((a: number, b: number) => a + b, 0) / all[id].length;
+function markLocalSubmitted(id: string) {
+  const current = getLocalSubmitted();
+  current[id] = true;
+  localStorage.setItem("ashraf-ratings-submitted", JSON.stringify(current));
 }
 
 export default function RatingWidget() {
   const [userRatings, setUserRatings] = useState<Record<string, number>>({});
-  const [averages, setAverages] = useState<Record<string, number>>({});
+  const [allRatings, setAllRatings] = useState<Record<string, number[]>>({});
   const [submitted, setSubmitted] = useState<Record<string, boolean>>({});
+  const [loading, setLoading] = useState(true);
+
+  const fetchRatings = useCallback(async () => {
+    try {
+      const data = await getRatingsFromFirebase();
+      setAllRatings(data);
+    } catch (err) {
+      console.error("Failed to fetch ratings:", err);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
   useEffect(() => {
-    const avgs: Record<string, number> = {};
-    categories.forEach((cat) => {
-      avgs[cat.id] = getAverage(cat.id);
-    });
-    setAverages(avgs);
-  }, []);
+    setSubmitted(getLocalSubmitted());
+    fetchRatings();
+  }, [fetchRatings]);
+
+  const getAverage = (id: string): number => {
+    const ratings = allRatings[id];
+    if (!ratings || ratings.length === 0) return 0;
+    return ratings.reduce((a, b) => a + b, 0) / ratings.length;
+  };
+
+  const getRatingCount = (id: string): number => {
+    return allRatings[id]?.length || 0;
+  };
 
   const handleRate = (catId: string, rating: number) => {
     if (submitted[catId]) return;
     setUserRatings((prev) => ({ ...prev, [catId]: rating }));
   };
 
-  const submitRating = (catId: string) => {
+  const submitRating = async (catId: string) => {
     const rating = userRatings[catId];
     if (!rating) return;
-    storeRating(catId, rating);
-    setSubmitted((prev) => ({ ...prev, [catId]: true }));
-    setAverages((prev) => ({ ...prev, [catId]: getAverage(catId) }));
+
+    try {
+      await submitRatingToFirebase(catId, rating);
+      markLocalSubmitted(catId);
+      setSubmitted((prev) => ({ ...prev, [catId]: true }));
+      await fetchRatings();
+    } catch (err) {
+      console.error("Failed to submit rating:", err);
+    }
   };
+
+  const averages: Record<string, number> = {};
+  categories.forEach((cat) => {
+    averages[cat.id] = getAverage(cat.id);
+  });
 
   const overallAverage = (() => {
     const validAverages = categories
@@ -84,10 +108,10 @@ export default function RatingWidget() {
     return validAverages.reduce((a, b) => a + b, 0) / validAverages.length;
   })();
 
-  const totalRatings = (() => {
-    const all = getStoredRatings();
-    return Object.values(all).reduce((sum, arr) => sum + arr.length, 0);
-  })();
+  const totalRatings = Object.values(allRatings).reduce(
+    (sum, arr) => sum + arr.length,
+    0
+  );
 
   const getVerdict = (score: number): { label: string; description: string } => {
     if (score === 0) return { label: "Unrated", description: "No one has judged him yet. Be the first to decide his fate." };
@@ -99,6 +123,19 @@ export default function RatingWidget() {
   };
 
   const verdict = getVerdict(overallAverage);
+
+  if (loading) {
+    return (
+      <div className="text-center py-12">
+        <div className="text-accent text-lg font-heading animate-pulse">
+          Loading ratings from the cloud...
+        </div>
+        <p className="text-white/40 text-sm mt-2">
+          (Even Ashraf&apos;s ratings need time to load)
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
@@ -117,7 +154,7 @@ export default function RatingWidget() {
             </h3>
             {averages[category.id] > 0 && (
               <span className="text-accent text-sm">
-                Avg: {averages[category.id].toFixed(1)} / 5
+                Avg: {averages[category.id].toFixed(1)} / 5 ({getRatingCount(category.id)} votes)
               </span>
             )}
           </div>
@@ -178,7 +215,7 @@ export default function RatingWidget() {
             Rating Results
           </h2>
           <p className="text-white/40 text-sm">
-            {totalRatings} total rating{totalRatings !== 1 ? "s" : ""} submitted
+            {totalRatings} total rating{totalRatings !== 1 ? "s" : ""} submitted worldwide
           </p>
         </div>
 
@@ -208,10 +245,7 @@ export default function RatingWidget() {
           {categories.map((category) => {
             const avg = averages[category.id] || 0;
             const percentage = (avg / 5) * 100;
-            const ratingCount = (() => {
-              const all = getStoredRatings();
-              return all[category.id]?.length || 0;
-            })();
+            const ratingCount = getRatingCount(category.id);
             const descIndex = Math.max(0, Math.min(4, Math.round(avg) - 1));
             return (
               <div key={category.id}>

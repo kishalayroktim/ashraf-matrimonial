@@ -29,8 +29,8 @@ export default function RatePage() {
         <RatingWidget />
 
         <div className="mt-8 text-center text-white/40 text-xs italic">
-          Ratings stored locally in your browser. We respect your privacy,
-          even if we don&apos;t respect Ashraf&apos;s feelings.
+          Ratings are stored globally. Everyone can see how the world judges Ashraf.
+          We respect your privacy, even if we don&apos;t respect Ashraf&apos;s feelings.
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-const SINGLE_SINCE = new Date("2000-01-01").getTime(); // He's been single since birth basically
+const SINGLE_SINCE = new Date("1999-10-01").getTime(); // Single since birth — October 1, 1999
 
 export default function CountdownTimer() {
   const [days, setDays] = useState(0);
@@ -52,7 +52,7 @@ export default function CountdownTimer() {
         ))}
       </div>
       <p className="text-white/40 text-xs mt-3 italic">
-        * Timer starts from birth. Accuracy not guaranteed.
+        * Counting since birth. At this rate, even his IELTS score has a better chance of getting matched.
       </p>
     </div>
   );
