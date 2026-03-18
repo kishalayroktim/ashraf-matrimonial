@@ -9,17 +9,17 @@ export default function Home() {
   return (
     <div className="relative">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col items-center justify-end pb-12 px-4 overflow-hidden">
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden">
         {/* Background image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/ashraf-10.jpg"
-            alt="Ashraf on the Road to Marriage"
+            src="/images/ashraf-1.jpg"
+            alt="Ashraf at Lake Garda"
             fill
-            className="object-cover object-top"
+            className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-primary/30 to-primary/80" />
+          <div className="absolute inset-0 bg-primary/70" />
         </div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.08),transparent_70%)]" />
 
