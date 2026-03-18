@@ -16,7 +16,7 @@ export default function Home() {
             src="/images/ashraf-10.jpg"
             alt="Ashraf on the Road to Marriage"
             fill
-            className="object-cover"
+            className="object-cover object-top"
             priority
           />
           <div className="absolute inset-0 bg-primary/40" />
