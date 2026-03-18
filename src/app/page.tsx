@@ -96,7 +96,7 @@ export default function Home() {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
             {[
               {
                 icon: "🎓",
@@ -112,6 +112,21 @@ export default function Home() {
                 icon: "📝",
                 title: "IELTS 8.0",
                 desc: "Free IELTS tutoring included with marriage. That's a $500 value, absolutely free. Act now.",
+              },
+              {
+                icon: "🏍️",
+                title: "Certified Biker",
+                desc: "Rides a motorcycle. Will pick you up on a bike for your first date. Helmet included, butterflies not guaranteed.",
+              },
+              {
+                icon: "🍗",
+                title: "Free Food Enthusiast",
+                desc: "His love language is free food. Dahuk pakhi is his ultimate weakness. Marry him and never eat alone.",
+              },
+              {
+                icon: "🏡",
+                title: "Noakhali Origins",
+                desc: "From Noakhali — the land of brave hearts and strong opinions. He will protect you and out-argue you.",
               },
             ].map((item, i) => (
               <motion.div

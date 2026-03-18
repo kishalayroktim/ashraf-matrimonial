@@ -135,7 +135,10 @@ export default function AboutPage() {
               { trait: "Respectful", desc: "Opens doors, pulls out chairs, the whole gentleman package." },
               { trait: "Disciplined", desc: "6 years of cadet training. Your future kids will be on schedule." },
               { trait: "Ambitious", desc: "Erasmus Mundus scholar with plans to settle abroad." },
-              { trait: "Good at Sports", desc: "Athletic enough to chase after your heart (and toddlers)." },
+              { trait: "Biker", desc: "Rides a motorcycle like a man on a mission — the mission being to find a bride before his mom finds one for him." },
+              { trait: "Foodie (Free Only)", desc: "Will attend any event if food is free. His love language is 'free biryani'. Dahuk pakhi is his ultimate weakness." },
+              { trait: "Noakhali Boy", desc: "Straight from Noakhali — which means he's tough, loyal, and will win any argument. Good luck." },
+              { trait: "Stylish Family", desc: "Has a brother who looks like he walked out of a sunglasses commercial. Good genes run in the family." },
             ].map((item, i) => (
               <motion.div
                 key={item.trait}

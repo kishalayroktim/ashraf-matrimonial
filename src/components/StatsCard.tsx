@@ -7,7 +7,10 @@ const stats = [
   { label: "Height", value: "5'4.2\"", subtitle: "Every inch counts" },
   { label: "IELTS", value: "8.0", subtitle: "Can argue in English" },
   { label: "Education", value: "BUET", subtitle: "Civil Engineering" },
+  { label: "Hometown", value: "Noakhali", subtitle: "Born & raised" },
   { label: "Location", value: "Italy", subtitle: "Erasmus Mundus" },
+  { label: "Fav Food", value: "Dahuk", subtitle: "Especially if free" },
+  { label: "Rides", value: "Biker", subtitle: "Two wheels, one heart" },
   { label: "Status", value: "Single", subtitle: "Desperately" },
 ];
 
