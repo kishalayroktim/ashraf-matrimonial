@@ -6,7 +6,7 @@
 //   NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
 
 export const EMAILJS_CONFIG = {
-  serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "YOUR_SERVICE_ID",
-  templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "YOUR_TEMPLATE_ID",
-  publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "YOUR_PUBLIC_KEY",
+  serviceId: "service_yxl9i8a",
+  templateId: "template_f0u0n7n",
+  publicKey: "XJ2rQ-I-6Yn-8MDk6",
 };

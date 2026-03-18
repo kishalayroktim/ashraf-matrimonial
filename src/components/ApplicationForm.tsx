@@ -3,6 +3,7 @@
 import { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
+import { EMAILJS_CONFIG } from "@/lib/emailjs";
 
 interface FormData {
   name: string;
@@ -47,8 +48,8 @@ export default function ApplicationForm() {
     try {
       // EmailJS: Replace these with your actual service/template/public key
       await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "YOUR_SERVICE_ID",
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "YOUR_TEMPLATE_ID",
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.templateId,
         {
           from_name: form.name,
           age: form.age,
@@ -61,7 +62,7 @@ export default function ApplicationForm() {
           ielts_tutoring: form.ieltsTutoring,
           why_you: form.whyYou,
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "YOUR_PUBLIC_KEY"
+        EMAILJS_CONFIG.publicKey
       );
       setStatus("success");
       setForm(initialForm);
