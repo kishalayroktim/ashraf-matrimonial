@@ -19,6 +19,7 @@ const placeholderPhotos: Photo[] = [
   { src: "/images/ashraf-7.jpg", caption: "The biker boy of Noakhali — two wheels, zero girlfriends" },
   { src: "/images/ashraf-8.jpg", caption: "Back at FCC — where they taught him discipline but not how to find a wife" },
   { src: "/images/ashraf-9.jpg", caption: "\"We Shall Never Surrender\" — also his approach to finding a bride" },
+  { src: "/images/ashraf-10.jpg", caption: "Road to Marriage: currently stuck on Singleton Alley. Spouse Hunter hoodie equipped." },
 ];
 
 export default function PhotoGrid() {

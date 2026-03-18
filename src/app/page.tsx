@@ -13,13 +13,13 @@ export default function Home() {
         {/* Background image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/ashraf-1.jpg"
-            alt="Ashraf at Lake Garda"
+            src="/images/ashraf-10.jpg"
+            alt="Ashraf on the Road to Marriage"
             fill
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-primary/80" />
+          <div className="absolute inset-0 bg-primary/60" />
         </div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.08),transparent_70%)]" />
 
@@ -35,7 +35,7 @@ export default function Home() {
             transition={{ delay: 0.3 }}
             className="text-accent text-sm uppercase tracking-[0.4em] mb-6"
           >
-            Established 2026 &bull; Premium Matchmaking
+            Spouse Hunter &bull; Currently on Singleton Alley
           </motion.p>
 
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-heading font-bold text-white leading-tight mb-4">
