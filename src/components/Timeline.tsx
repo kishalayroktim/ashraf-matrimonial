@@ -11,6 +11,13 @@ const timelineData = [
     icon: "🎖️",
   },
   {
+    year: "2018",
+    title: "ISSB Green Card — Bangladesh Army",
+    description:
+      "Got selected for the Bangladesh Army through ISSB. The Army wanted him, but he said no. A man who rejects the military but can't reject his mom's rishta calls. Priorities.",
+    icon: "💂",
+  },
+  {
     year: "2018 - 2024",
     title: "BSc in Civil Engineering — BUET",
     description:

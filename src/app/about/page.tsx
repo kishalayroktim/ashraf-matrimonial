@@ -52,8 +52,10 @@ export default function AboutPage() {
             Ashraf Hamid is a 26-year-old civil engineer of impeccable character,
             questionable height, and undeniable ambition. Having survived six
             years of military-grade discipline at Faujdarhat Cadet College,
-            followed by six years of academic rigor at BUET, he has emerged as
-            a battle-tested individual ready for the ultimate challenge: marriage.
+            he even earned a green card from ISSB for the Bangladesh Army —
+            but turned it down. The Army wasn&apos;t ready for him. After six years
+            of academic rigor at BUET, he has emerged as a battle-tested
+            individual ready for the ultimate challenge: marriage.
           </p>
           <p className="text-white/80 leading-relaxed mb-4">
             Currently stationed in Germany under the prestigious Erasmus Mundus
