@@ -16,6 +16,9 @@ const placeholderPhotos: Photo[] = [
   { src: "/images/ashraf-4.jpg", caption: "Florence, Italy — blending in with the Renaissance art (short kings were popular then)" },
   { src: "/images/ashraf-5.jpg", caption: "Budapest winter — hands in pockets because no one's hand to hold" },
   { src: "/images/ashraf-6.jpg", caption: "Hungarian Parliament at night — the gold matches his matrimonial ambitions" },
+  { src: "/images/ashraf-7.jpg", caption: "The biker boy of Noakhali — two wheels, zero girlfriends" },
+  { src: "/images/ashraf-8.jpg", caption: "Back at FCC — where they taught him discipline but not how to find a wife" },
+  { src: "/images/ashraf-9.jpg", caption: "\"We Shall Never Surrender\" — also his approach to finding a bride" },
 ];
 
 export default function PhotoGrid() {
